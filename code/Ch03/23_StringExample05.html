@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Example 3</title>
+  <script type="text/javascript">
+
+    // 这个模板字面量在换行符之后有25个空格符(手动添加25个空格)
+    let myTemplateLiteral = `first line
+ second line`;
+    alert(myTemplateLiteral.length); // 47
+    // 这个模板字面量以一个换行符开头
+    let secondTemplateLiteral = `
+first line
+second line`;
+    alert(secondTemplateLiteral[0] === '\n'); // true
+    // 这个模板字面量没有意料之外的字符
+    let thirdTemplateLiteral = `first line
+second line`;
+    alert(thirdTemplateLiteral);
+    // first line
+    // second line
+
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Example 3</title>
+  <script type="text/javascript">
+
+    let a = 6;
+    let b = 9;
+    function simpleTag(strings, ...expressions) {
+      alert(strings);
+      for(const expression of expressions) {
+        alert(expression);
+      }
+      return 'foobar';
+    }
+    let taggedResult = simpleTag`${ a } + ${ b } = ${ a + b }`;
+    // ["", " + ", " = ", ""] 
+    // 6 
+    // 9 
+    // 15 
+    alert(taggedResult); // "foobar"
+
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>

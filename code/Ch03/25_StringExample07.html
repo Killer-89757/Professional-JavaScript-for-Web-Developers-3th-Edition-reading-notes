@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Example 3</title>
+  <script type="text/javascript">
+
+    let a = 6;
+    let b = 9;
+    function simpleTag(strings, aValExpression, bValExpression, sumExpression) {
+      alert(strings);
+      alert(aValExpression);
+      alert(bValExpression);
+      alert(sumExpression);
+      return 'foobar';
+    }
+    let untaggedResult = `${ a } + ${ b } = ${ a + b }`;
+    let taggedResult = simpleTag`${ a } + ${ b } = ${ a + b }`;
+    // ["", " + ", " = ", ""] 
+    // 6 
+    // 9 
+    // 15 
+    alert(untaggedResult); // "6 + 9 = 15" 
+    alert(taggedResult); // "foobar"
+
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>

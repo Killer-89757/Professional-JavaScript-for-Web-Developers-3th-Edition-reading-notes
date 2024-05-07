@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Example 3</title>
+  <script type="text/javascript">
+
+    function printRaw(strings) {
+      alert('Actual characters:');
+      for (const string of strings) {
+        alert(string);
+      }
+      alert('Escaped characters;');
+      for (const rawString of strings.raw) {
+        alert(rawString);
+      }
+    }
+    printRaw`\u00A9${ 'and' }\n`;
+    // Actual characters: 
+    // © 
+    //（换行符）
+    // Escaped characters: 
+    // \u00A9 
+    // \n
+
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>
