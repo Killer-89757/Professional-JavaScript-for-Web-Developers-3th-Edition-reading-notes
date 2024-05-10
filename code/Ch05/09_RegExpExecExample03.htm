@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RegExp exec() Example 2</title>
+    <script type="text/javascript">
+        let text = "cat, bat, sat, fat";
+        let pattern = /.at/y;
+        let matches = pattern.exec(text);
+        console.log(matches.index); // 0
+        console.log(matches[0]); // cat
+        console.log(pattern.lastIndex); // 3
+
+        // 以索引 3 对应的字符开头找不到匹配项，因此 exec()返回 null
+        // exec()没找到匹配项，于是将 lastIndex 设置为 0
+        matches = pattern.exec(text);
+        console.log(matches); // null
+        console.log(pattern.lastIndex); // 0
+
+        // 向前设置 lastIndex 可以让粘附的模式通过 exec()找到下一个匹配项：
+        pattern.lastIndex = 5;
+        matches = pattern.exec(text);
+        console.log(matches.index); // 5
+        console.log(matches[0]); // bat
+        console.log(pattern.lastIndex); // 8
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

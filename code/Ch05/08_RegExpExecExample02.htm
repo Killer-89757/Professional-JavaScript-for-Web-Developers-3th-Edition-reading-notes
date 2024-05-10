@@ -28,6 +28,11 @@
         alert(matches[0]);       //"bat"
         alert(pattern2.lastIndex);//0
 
+        matches = pattern.exec(text);
+        console.log(matches.index); // 10
+        console.log(matches[0]); // sat
+        console.log(pattern.lastIndex); // 13
+
     </script>
 </head>
 <body>

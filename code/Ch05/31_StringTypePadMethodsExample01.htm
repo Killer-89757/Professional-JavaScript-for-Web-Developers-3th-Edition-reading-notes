@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Type Location Methods Example 2</title>
+    <script type="text/javascript">
+
+        var stringValue = "foo";
+        alert(stringValue.padStart(6)); // " foo" 
+        alert(stringValue.padStart(9, ".")); // "......foo" 
+        alert(stringValue.padEnd(6)); // "foo " 
+        alert(stringValue.padEnd(9, ".")); // "foo......"
+
+        var stringValue = "foo";
+        alert(stringValue.padStart(8, "bar")); // "barbafoo" 
+        alert(stringValue.padStart(2)); // "foo" 
+        alert(stringValue.padEnd(8, "bar")); // "foobarba" 
+        alert(stringValue.padEnd(2)); // "foo"
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

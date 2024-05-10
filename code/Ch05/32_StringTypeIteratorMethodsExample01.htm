@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Type Location Methods Example 2</title>
+    <script type="text/javascript">
+
+        let message = "abc";
+        let stringIterator = message[Symbol.iterator]();
+        alert(stringIterator.next()); // {value: "a", done: false}
+        alert(stringIterator.next()); // {value: "b", done: false}
+        alert(stringIterator.next()); // {value: "c", done: false}
+        alert(stringIterator.next()); // {value: undefined, done: true}
+
+        for (const c of "abcde") {
+            alert(c);
+        }
+        // a 
+        // b 
+        // c 
+        // d 
+        // e
+
+        var message = "abcde";
+        console.log([...message]); // ["a", "b", "c", "d", "e"]
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

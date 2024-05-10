@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Type Example</title>
+    <script type="text/javascript">
+
+        let a1 = String.fromCharCode(0x00C5),
+            a2 = String.fromCharCode(0x212B),
+            a3 = String.fromCharCode(0x0041, 0x030A);
+        alert(a1, a2, a3); // Å, Å, Å 
+        alert(a1 === a2); // false 
+        alert(a1 === a3); // false 
+        alert(a2 === a3); // false
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

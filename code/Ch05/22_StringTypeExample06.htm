@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Type Example</title>
+    <script type="text/javascript">
+
+        let a1 = String.fromCharCode(0x00C5),
+            a2 = String.fromCharCode(0x212B),
+            a3 = String.fromCharCode(0x0041, 0x030A);
+        // U+00C5 是对 0+212B 进行 NFC/NFKC 规范化之后的结果
+        alert(a1 === a1.normalize("NFD")); // false 
+        alert(a1 === a1.normalize("NFC")); // true 
+        alert(a1 === a1.normalize("NFKD")); // false 
+        alert(a1 === a1.normalize("NFKC")); // true 
+        // U+212B 是未规范化的
+        alert(a2 === a2.normalize("NFD")); // false 
+        alert(a2 === a2.normalize("NFC")); // false 
+        alert(a2 === a2.normalize("NFKD")); // false 
+        alert(a2 === a2.normalize("NFKC")); // false 
+        // U+0041/U+030A 是对 0+212B 进行 NFD/NFKD 规范化之后的结果
+        alert(a3 === a3.normalize("NFD")); // true 
+        alert(a3 === a3.normalize("NFC")); // false 
+        alert(a3 === a3.normalize("NFKD")); // true 
+        alert(a3 === a3.normalize("NFKC")); // false 
+        //选择同一种规范化形式可以让比较操作符返回正确的结果：
+        // let a1 = String.fromCharCode(0x00C5),
+        //     a2 = String.fromCharCode(0x212B),
+        //     a3 = String.fromCharCode(0x0041, 0x030A);
+        // alert(a1.normalize("NFD") === a2.normalize("NFD")); // true
+        // alert(a2.normalize("NFKC") === a3.normalize("NFKC")); // true
+        // alert(a1.normalize("NFC") === a3.normalize("NFC")); // true
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>
