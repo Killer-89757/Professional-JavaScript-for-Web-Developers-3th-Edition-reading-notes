@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        function* generatorFn() {}
+        let generatorObject = generatorFn();
+        console.log(generatorObject); // generatorFn {<suspended>}
+        console.log(generatorObject.next()); // { done: true, value: undefined }
+
+        // value 属性是生成器函数的返回值，默认值为 undefined，可以通过生成器函数的返回值指定
+        function* generatorFn1() {
+            return 'foo';
+        }
+        let generatorObject1 = generatorFn1();
+        console.log(generatorObject1); // generatorFn {<suspended>}
+        console.log(generatorObject1.next()); // { done: true, value: 'foo' }
+
+        // 生成器函数只会在初次调用 next()方法后开始执行
+        function* generatorFn2() {
+            console.log('foobar');
+        }
+        // 初次调用生成器函数并不会打印日志
+        let generatorObject2 = generatorFn2();
+        generatorObject2.next(); // foobar
+    </script>
+</head>
+<body>
+
+</body>
+</html>

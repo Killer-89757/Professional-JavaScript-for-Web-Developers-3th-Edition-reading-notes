@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        // for-of 循环调用了默认迭代器（它恰好又是一个生成器函数）并产生了一个生成器对象
+        class Foo {
+            constructor() {
+                this.values = [1, 2, 3];
+            }
+            * [Symbol.iterator]() {
+                yield* this.values;
+            }
+        }
+        const f = new Foo();
+        for (const x of f) {
+            console.log(x);
+        }
+        // 1
+        // 2
+        // 3
+    </script>
+</head>
+<body>
+
+</body>
+</html>

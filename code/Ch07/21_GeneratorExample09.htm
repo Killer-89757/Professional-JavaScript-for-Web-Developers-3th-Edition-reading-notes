@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        function* generator() {
+            console.log('start')
+            let a = yield 1
+            console.log("a--传入的参数是：", a)   // a
+            let b = yield 2
+            console.log("a--传入的参数是", b)   // b
+        }
+
+        let generatorObj = generator()
+
+        console.log(generatorObj.next().value)  // 'start'
+        console.log(generatorObj.next('a').value)  // '1'
+        console.log(generatorObj.next('b').value)  // '2'
+
+
+        // 第一次调用 next()传入的值不会被使用，因为这一次调用是为了开始执行生成器函数
+        function* generatorFn(initial) {
+            console.log(initial);
+            console.log(yield);
+            console.log(yield);
+        }
+        let generatorObject = generatorFn('foo');
+        generatorObject.next('bar'); // foo  注意这个地方第一次传入的值不会使用
+        generatorObject.next('baz'); // baz
+        generatorObject.next('qux'); // qux
+    </script>
+</head>
+<body>
+
+</body>
+</html>

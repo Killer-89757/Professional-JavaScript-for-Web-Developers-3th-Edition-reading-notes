@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        let a = [1, 2, 3, 4, 5];
+        let iter = a[Symbol.iterator]();
+        for (let i of iter) {
+            console.log(i);
+            if (i > 2) {
+                break
+            }
+        }
+        // 1
+        // 2
+        // 3
+        for (let i of iter) {
+            console.log(i);
+        }
+        // 4
+        // 5
+    </script>
+</head>
+<body>
+
+</body>
+</html>

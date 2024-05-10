@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        function* generatorFn() {
+            yield;
+        }
+        let generatorObject = generatorFn();
+        console.log(generatorObject.next()); // { done: false, value: undefined }
+        console.log(generatorObject.next()); // { done: true, value: undefined }
+
+        // 此时的yield 关键字有点像函数的中间返回语句，它生成的值会出现在 next()方法返回的对象里
+        // 通过yield关键字暂停的生成器函数会处在done: false状态
+        function * generator(){
+            yield 1
+            yield 2
+            yield 3
+        }
+
+        let generatorObj = generator()
+
+        console.log(generatorObj.next())    // {value: 1, done: false}
+        console.log(generatorObj.next())    // {value: 2, done: false}
+        console.log(generatorObj.next())    // {value: 3, done: false}
+        console.log(generatorObj.next())    // {value: undefined, done: true}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        // 生成器函数声明
+        function* generatorFn1() {}
+
+        // 生成器函数表达式
+        let generatorFn2 = function* () {}
+
+        // 作为对象字面量方法的生成器函数
+        let foo = {
+            * generatorFn() {}
+        }
+
+        // 作为类实例方法的生成器函数
+        class Foo {
+            * generatorFn() {}
+        }
+
+        // 作为类静态方法的生成器函数
+        class Bar {
+            static * generatorFn() {}
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

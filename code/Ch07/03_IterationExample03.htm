@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        let arr = ['foo', 'bar', 'baz'];
+        // for-of 循环
+        for (let el of arr) {
+            console.log(el);
+        }
+        // foo
+        // bar
+        // baz
+
+        // 数组解构
+        let [a, b, c] = arr;
+        console.log(a, b, c); // foo, bar, baz
+
+        // 扩展操作符
+        let arr2 = [...arr];
+        console.log(arr2); // ['foo', 'bar', 'baz']
+
+        // Array.from()
+        let arr3 = Array.from(arr);
+        console.log(arr3); // ['foo', 'bar', 'baz']
+
+        // Set 构造函数
+        let set = new Set(arr);
+        console.log(set); // Set(3) {'foo', 'bar', 'baz'}
+
+        // Map 构造函数
+        let pairs = arr.map((x, i) => [x, i]);
+        console.log(pairs); // [['foo', 0], ['bar', 1], ['baz', 2]]
+        let map = new Map(pairs);
+        console.log(map); // Map(3) { 'foo'=>0, 'bar'=>1, 'baz'=>2 }
+
+        // 如果对象原型链上的父类实现了 Iterable 接口，那这个对象也就实现了这个接口：
+        class FooArray extends Array {
+        }
+
+        let fooArr = new FooArray('foo', 'bar', 'baz');
+        for (let el of fooArr) {
+            console.log(el);
+        }
+        // foo
+        // bar
+        // baz
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

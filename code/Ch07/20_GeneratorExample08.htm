@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        // 生成器对象当成可迭代对象
+        function* generatorFn() {
+            yield 1;
+            yield 2;
+            yield 3;
+        }
+        for (const x of generatorFn()) {
+            console.log(x);
+        }
+        // 1
+        // 2
+        // 3
+
+        // 要自定义迭代对象
+        function* nTimes(n) {
+            while(n--) {
+                yield;
+            }
+        }
+
+        for (let _ of nTimes(3)) {
+            console.log('foo');
+        }
+        // foo
+        // foo
+        // foo
+    </script>
+</head>
+<body>
+
+</body>
+</html>

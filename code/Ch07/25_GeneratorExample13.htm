@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        function* generatorFn() {
+            console.log('iter value:', yield* [1, 2, 3]);
+        }
+        for (const x of generatorFn()) {
+            console.log('value:', x);
+        }
+        // value: 1
+        // value: 2
+        // value: 3
+        // iter value: undefined
+    </script>
+</head>
+<body>
+
+</body>
+</html>

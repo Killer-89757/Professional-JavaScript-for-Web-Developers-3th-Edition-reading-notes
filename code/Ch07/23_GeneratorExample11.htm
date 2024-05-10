@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+
+        // 根据配置的值迭代相应次数并产生迭代的索引,不使用数组完成
+        function* nTimes(n) {
+            for (let i = 0; i < n; ++i) {
+                yield i;
+            }
+        }
+        for (let x of nTimes(3)) {
+            console.log(x);
+        }
+        // 0
+        // 1
+        // 2
+
+
+        function* nTimes1(n) {
+            let i = 0;
+            while(n--) {
+                yield i++;
+            }
+        }
+        for (let x of nTimes1(3)) {
+            console.log(x);
+        }
+        // 0
+        // 1
+        // 2
+
+        // 实现范围
+        function* range(start, end) {
+            while(end > start) {
+                yield start++;
+            }
+        }
+        for (const x of range(4, 7)) {
+            console.log(x);
+        }
+        // 4
+        // 5
+        // 6
+
+        // 填充数组
+        function* zeroes(n) {
+            while(n--) {
+                yield 0;
+            }
+        }
+        console.log(Array.from(zeroes(8))); // [0, 0, 0, 0, 0, 0, 0, 0]
+    </script>
+</head>
+<body>
+
+</body>
+</html>

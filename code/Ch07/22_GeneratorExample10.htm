@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        // yield 关键字并非只能使用一次
+        function* generatorFn() {
+            for (let i = 0;;++i) {
+                yield i;
+            }
+        }
+        let generatorObject = generatorFn();
+        console.log(generatorObject.next().value); // 0
+        console.log(generatorObject.next().value); // 1
+        console.log(generatorObject.next().value); // 2
+        console.log(generatorObject.next().value); // 3
+        console.log(generatorObject.next().value); // 4
+        console.log(generatorObject.next().value); // 5
+        // ....
+    </script>
+</head>
+<body>
+
+</body>
+</html>

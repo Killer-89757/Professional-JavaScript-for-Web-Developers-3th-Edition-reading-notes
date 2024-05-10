@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        // 星号增强 yield 的行为，让它能够迭代一个可迭代对象，从而一次产出一个值
+        function* generatorFn() {
+            yield* [1, 2, 3];
+        }
+        let generatorObject = generatorFn();
+        for (const x of generatorFn()) {
+            console.log(x);
+        }
+        // 1
+        // 2
+        // 3
+
+        // 与生成器函数的星号类似，yield 星号两侧的空格不影响
+        function* generatorFn1() {
+            yield* [1, 2];
+            yield *[3, 4];
+            yield * [5, 6];
+        }
+        for (const x of generatorFn1()) {
+            console.log(x);
+        }
+        // 1
+        // 2
+        // 3
+        // 4
+        // 5
+        // 6
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Type Example 1</title>
+    <script type="text/javascript">
+        // 有效
+        function* validGeneratorFn() {
+            yield;
+        }
+        // 无效
+        function* invalidGeneratorFnA() {
+            function a() {
+                yield;
+            }
+        }
+        // 无效
+        function* invalidGeneratorFnB() {
+            const b = () => {
+                yield;
+            }
+        }
+        // 无效
+        function* invalidGeneratorFnC() {
+            (() => {
+                yield;
+            })();
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
