@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Type Concat Example</title>
+    <script type="text/javascript">
+
+        let colors = ["red", "green", "blue"];
+        let newColors = ["black", "brown"];
+        let moreNewColors = {
+            [Symbol.isConcatSpreadable]: true,
+            length: 2,
+            0: "pink",
+            1: "cyan"
+        };
+        newColors[Symbol.isConcatSpreadable] = false;
+        // 强制不打平数组
+        let colors2 = colors.concat("yellow", newColors);
+        // 强制打平类数组对象
+        let colors3 = colors.concat(moreNewColors);
+        console.log(colors); // ["red", "green", "blue"]
+        console.log(colors2); // ["red", "green", "blue", "yellow", ["black", "brown"]]
+        console.log(colors3); // ["red", "green", "blue", "pink", "cyan"]
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

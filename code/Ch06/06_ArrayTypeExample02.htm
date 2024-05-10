@@ -14,6 +14,23 @@
         alert(values.length);    //2 (FF, Safari, Opera) or 3 (IE)
         alert(options.length);   //5 (FF, Safari, Opera) or 6 (IE)
 
+        // 数组空位
+        const options1 = [1,,,,5];
+        for (const option of options1) {
+            console.log(option === undefined);
+        }
+        // false
+        // true
+        // true
+        // true
+        // false
+
+        // ES6 之前的方法则会忽略这个空位
+        const options2 = [1,,,,5];
+        // map()会跳过空位置
+        console.log(options2.map(() => 6)); // [6, undefined, undefined, undefined, 6]
+        // join()视空位置为空字符串
+        console.log(options2.join('-')); // "1----5"
 
     </script>
 </head>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Type Example</title>
+</head>
+<body>
+<script>
+    const m = new Map();
+    const functionKey = function () {
+    };
+    const symbolKey = Symbol();
+    const objectKey = new Object();
+    m.set(functionKey, "functionValue");
+    m.set(symbolKey, "symbolValue");
+    m.set(objectKey, "objectValue");
+    alert(m.get(functionKey)); // functionValue
+    alert(m.get(symbolKey)); // symbolValue
+    alert(m.get(objectKey)); // objectValue
+    // SameValueZero 比较意味着独立实例不冲突
+    alert(m.get(function () {
+    })); // undefined
+
+</script>
+</body>
+</html>

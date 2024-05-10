@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Type Example</title>
+</head>
+<body>
+<script>
+    let arr1 = [1, 2, 3];
+    // 把数组复制到定型数组
+    let typedArr1 = Int16Array.of(...arr1);
+    let typedArr2 = Int16Array.from(arr1);
+    console.log(typedArr1); // Int16Array [1, 2, 3]
+    console.log(typedArr2); // Int16Array [1, 2, 3]
+    // 把数组复制到映射
+    let map = new Map(arr1.map((x) => [x, 'val' + x]));
+    console.log(map); // Map {1 => 'val 1', 2 => 'val 2', 3 => 'val 3'}
+    // 把数组复制到集合
+    let set = new Set(typedArr2);
+    console.log(set); // Set {1, 2, 3}
+    // 把集合复制回数组
+    let arr2 = [...set];
+    console.log(arr2); // [1, 2, 3]
+</script>
+</body>
+</html>

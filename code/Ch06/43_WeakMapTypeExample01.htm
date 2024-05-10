@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Type Example</title>
+</head>
+<body>
+<script>
+    const key1 = {id: 1},
+        key2 = {id: 2},
+        key3 = {id: 3};
+    // 使用嵌套数组初始化弱映射
+    const wm1 = new WeakMap([
+        [key1, "val1"],
+        [key2, "val2"],
+        [key3, "val3"]
+    ]);
+    alert(wm1.get(key1)); // val1
+    alert(wm1.get(key2)); // val2
+    alert(wm1.get(key3)); // val3
+
+    // 初始化是全有或全无的操作
+    // 只要有一个键无效就会抛出错误，导致整个初始化失败
+    // 键必须是object or 继承自object
+    // const wm2 = new WeakMap([
+    //     [key1, "val1"],
+    //     ["BADKEY", "val2"],
+    //     [key3, "val3"]
+    // ]);
+    // TypeError: Invalid value used as WeakMap key
+    // alert(typeof wm2);
+    // ReferenceError: wm2 is not defined
+
+
+    // 原始值可以先包装成对象再用作键(这种方式也不行)
+    const stringKey = new String("key1");
+    const wm3 = new WeakMap([
+        stringKey, "val1"
+    ]);
+    alert(wm3.get(stringKey)); // "val1"
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Type Example</title>
+</head>
+<body>
+<script>
+    const s = new Set(["val1", "val2", "val3"]);
+    alert(s.values === s[Symbol.iterator]); // true
+    alert(s.keys === s[Symbol.iterator]); // true
+    for (let value of s.values()) {
+        alert(value);
+    }
+    // val1
+    // val2
+    // val3
+    for (let value of s[Symbol.iterator]()) {
+        alert(value);
+    }
+    // val1
+    // val2
+    // val3
+
+    const s1 = new Set(["val1", "val2", "val3"]);
+    for (let pair of s1.entries()) {
+        console.log(pair);
+    }
+    // ["val1", "val1"]
+    // ["val2", "val2"]
+    // ["val3", "val3"]
+
+    const s2 = new Set(["val1", "val2", "val3"]);
+    s2.forEach((val, dupVal) => alert(`${val} -> ${dupVal}`));
+    // val1 -> val1
+    // val2 -> val2
+    // val3 -> val3
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array indexOf() Example</title>
+</head>
+<body>
+    <script>
+        const people = [
+            {
+                name: "Matt",
+                age: 27
+            },
+            {
+                name: "Nicholas",
+                age: 29
+            }
+        ];
+        alert(people.find((element, index, array) => element.age < 28));
+        // {name: "Matt", age: 27}
+        alert(people.findIndex((element, index, array) => element.age < 28));
+        // 0
+
+
+        const evens = [2, 4, 6];
+        // 找到匹配后，永远不会检查数组的最后一个元素
+        evens.find((element, index, array) => {
+            console.log(element);
+            console.log(index);
+            console.log(array);
+            return element === 4;
+        });
+        // 2
+        // 0
+        // [2, 4, 6]
+        // 4
+        // 1
+        // [2, 4, 6]
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Type Example</title>
+</head>
+<body>
+<script>
+    const s = new Set();
+    const objVal = {},
+        arrVal = [];
+    s.add(objVal);
+    s.add(arrVal);
+    objVal.bar = "bar";
+    arrVal.push("bar");
+    alert(s.has(objVal)); // true
+    alert(s.has(arrVal)); // true
+
+</script>
+</body>
+</html>

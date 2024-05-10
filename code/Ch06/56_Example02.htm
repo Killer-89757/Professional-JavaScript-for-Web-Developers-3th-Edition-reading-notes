@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Type Example</title>
+</head>
+<body>
+<script>
+    let arr1 = [1, 2, 3];
+    let arr2 = [...arr1];
+    alert(arr1); // [1, 2, 3]
+    alert(arr2); // [1, 2, 3]
+    alert(arr1 === arr2); // false
+
+    let arr3 = [1, 2, 3];
+    let arr4 = [0, ...arr3, 4, 5];
+    alert(arr4); // [0, 1, 2, 3, 4, 5]
+
+    let arr5 = [{}];
+    let arr6 = [...arr5];
+    arr5[0].foo = 'bar';
+    alert(arr6[0]); // { foo: 'bar' }
+</script>
+</body>
+</html>

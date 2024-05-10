@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Type Example</title>
+</head>
+<body>
+<script>
+    const ws = new WeakSet();
+    const val1 = {id: 1},
+        val2 = {id: 2};
+    alert(ws.has(val1)); // false
+    ws.add(val1).add(val2);
+    alert(ws.has(val1)); // true
+    alert(ws.has(val2)); // true
+    ws.delete(val1); // 只删除这一个值
+    alert(ws.has(val1)); // false
+    alert(ws.has(val2)); // true
+
+    // add()方法返回弱集合实例，因此可以把多个操作连缀起来，包括初始化声明：
+    const val3 = {id: 1},
+        val4 = {id: 2},
+        val5 = {id: 3};
+    const ws = new WeakSet().add(val3);
+    ws.add(val4)
+        .add(val5);
+    alert(ws.has(val3)); // true
+    alert(ws.has(val4)); // true
+    alert(ws.has(val5)); // true
+
+</script>
+</body>
+</html>

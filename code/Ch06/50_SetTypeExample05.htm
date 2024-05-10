@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Type Example</title>
+</head>
+<body>
+<script>
+    const s = new Set();
+    s.add('foo');
+    alert(s.size); // 1
+    s.add('foo');
+    alert(s.size); // 1
+    // 集合里有这个值
+    alert(s.delete('foo')); // true
+    // 集合里没有这个值
+    alert(s.delete('foo')); // false
+
+</script>
+</body>
+</html>

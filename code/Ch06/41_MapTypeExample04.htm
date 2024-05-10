@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Type Example</title>
+</head>
+<body>
+<script>
+    const m = new Map([
+        ["key1", "val1"],
+        ["key2", "val2"],
+        ["key3", "val3"]
+    ]);
+    alert(m.entries === m[Symbol.iterator]); // true
+    for (let pair of m.entries()) {
+        alert(pair);
+    }
+    // [key1,val1]
+    // [key2,val2]
+    // [key3,val3]
+    for (let pair of m[Symbol.iterator]()) {
+        alert(pair);
+    }
+    // [key1,val1]
+    // [key2,val2]
+    // [key3,val3]
+
+    //因为 entries()是默认迭代器，所以可以直接对映射实例使用扩展操作，把映射转换为数组：
+    const m1 = new Map([
+        ["key1", "val1"],
+        ["key2", "val2"],
+        ["key3", "val3"]
+    ]);
+    console.log([...m1]); // [[key1,val1],[key2,val2],[key3,val3]]
+
+</script>
+</body>
+</html>

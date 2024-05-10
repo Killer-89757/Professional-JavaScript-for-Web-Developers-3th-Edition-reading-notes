@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Type Example</title>
+</head>
+<body>
+<script>
+    // 使用数组初始化集合
+    const s1 = new Set(["val1", "val2", "val3"]);
+    alert(s1.size); // 3
+
+    // 使用自定义迭代器初始化集合
+    const s2 = new Set({
+        [Symbol.iterator]: function*() {
+            yield "val1";
+            yield "val2";
+            yield "val3";
+        }
+    });
+    alert(s2.size); // 3
+
+</script>
+</body>
+</html>

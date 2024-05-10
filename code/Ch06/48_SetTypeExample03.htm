@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Type Example</title>
+</head>
+<body>
+<script>
+    const s = new Set();
+    const functionVal = function() {};
+    const symbolVal = Symbol();
+    const objectVal = new Object();
+    s.add(functionVal);
+    s.add(symbolVal);
+    s.add(objectVal);
+    alert(s.has(functionVal)); // true
+    alert(s.has(symbolVal)); // true
+    alert(s.has(objectVal)); // true
+    // SameValueZero 检查意味着独立的实例不会冲突
+    alert(s.has(function() {})); // false
+
+</script>
+</body>
+</html>
