@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Type Example</title>
+    <script type="text/javascript">
+
+        // 声明式定义
+        function sum (num1, num2) {
+            return num1 + num2;
+        }
+        // 注意函数定义最后没有加分号。
+
+        // 函数表达式 式定义
+        let sum1 = function(num1, num2) {
+            return num1 + num2;
+        };
+        // 注意 function 关键字后面没有名称，因为不需要。这个函数可以通过变量 sum 来引用
+        // 注意这里的函数末尾是有分号的，与任何变量初始化语句一样。
+
+        // 箭头函数 式定义
+        let sum2 = (num1, num2) => {
+            return num1 + num2;
+        };
+
+        // Function 构造函数 式定义
+        // 这个构造函数接收任意多个字符串参数
+        // 最后一个参数始终会被当成函数体，而之前的参数都是新函数的参数。
+        let sum3 = new Function("num1", "num2", "return num1 + num2");   // 不推荐
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

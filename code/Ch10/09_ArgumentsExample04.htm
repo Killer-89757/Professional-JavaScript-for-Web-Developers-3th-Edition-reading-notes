@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Type Example</title>
+    <script type="text/javascript">
+
+        // ECMAScript5.1，实现默认参数的一种常用方式就是检测某个参数是否等于 undefined
+        function makeKing(name) {
+            name = (typeof name !== 'undefined') ? name : 'Henry';
+            return `King ${name} VIII`;
+        }
+        console.log(makeKing()); // 'King Henry VIII'
+        console.log(makeKing('Louis')); // 'King Louis VIII
+
+        // ECMAScript 6 支持显式定义默认参数了
+        function makeKing1(name = 'Henry') {
+            return `King ${name} VIII`;
+        }
+
+        console.log(makeKing1('Louis')); // 'King Louis VIII'
+        console.log(makeKing1()); // 'King Henry VIII'
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

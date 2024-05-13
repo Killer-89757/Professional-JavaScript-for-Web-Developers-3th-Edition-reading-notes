@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Type Example</title>
+    <script type="text/javascript">
+
+        function getSum(...values) {
+            // 顺序累加 values 中的所有值
+            // 初始值的总和为 0
+            return values.reduce((x, y) => x + y, 0);
+        }
+        console.log(getSum(1,2,3)); // 6
+
+        // 收集参数的前面如果还有命名参数，则只会收集其余的参数；
+
+        // 不可以
+        function getProduct(...values, lastValue) {}
+
+        // 可以
+        function ignoreFirst(firstValue, ...values) {
+            console.log(values);
+        }
+        ignoreFirst(); // []
+        ignoreFirst(1); // []
+        ignoreFirst(1,2); // [2]
+        ignoreFirst(1,2,3); // [2, 3]
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

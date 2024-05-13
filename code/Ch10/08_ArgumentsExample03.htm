@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Type Example</title>
+    <script type="text/javascript">
+
+
+        function foo() {
+            console.log(arguments[0]);
+        }
+        foo(5); // 5
+
+        // 箭头函数传给函数的参数将不能使用 arguments 关键字访问，而只能通过定义的命名参数访问
+        let bar = () => {
+            console.log(arguments[0]);
+        };
+        bar(5); // ReferenceError: arguments is not defined
+
+
+        // 虽然箭头函数中没有 arguments 对象，但可以在包装函数中把它提供给箭头函数
+        function foo1() {
+            let bar = () => {
+                console.log(arguments[0]); // 5
+            };
+            bar();
+        }
+        foo1(5);
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

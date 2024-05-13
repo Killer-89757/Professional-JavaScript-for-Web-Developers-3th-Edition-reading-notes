@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Type Example</title>
+    <script type="text/javascript">
+
+        // 箭头函数虽然不支持 arguments 对象，但支持收集参数的定义方式
+        let getSum = (...values) => {
+            return values.reduce((x, y) => x + y, 0);
+        }
+        console.log(getSum(1,2,3)); // 6
+
+        // 使用收集参数并不影响 arguments 对象，它仍然反映调用时传给函数的参数
+        function getSum1(...values) {
+            console.log(arguments.length); // 3
+            console.log(arguments); // [1, 2, 3]
+            console.log(values); // [1, 2, 3]
+        }
+        console.log(getSum1(1,2,3));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

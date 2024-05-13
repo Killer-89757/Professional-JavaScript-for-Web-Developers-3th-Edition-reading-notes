@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Type Example</title>
+    <script type="text/javascript">
+
+        // ECMAScript 函数的参数只是为了方便才写出来的，并不是必须写出来的。
+        function sayHi(name, message) {
+            console.log("Hello " + name + ", " + message);
+        }
+
+        // 等价于
+        function sayHi() {
+            console.log("Hello " + arguments[0] + ", " + arguments[1]);
+        }
+
+        function doAdd() {
+            if (arguments.length === 1) {
+                console.log(arguments[0] + 10);
+            } else if (arguments.length === 2) {
+                console.log(arguments[0] + arguments[1]);
+            }
+        }
+        doAdd(10); // 20
+        doAdd(30, 20); // 50
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Type Example</title>
+    <script type="text/javascript">
+
+        // 给参数传 undefined 相当于没有传值，不过这样可以利用多个独立的默认值
+        function makeKing(name = 'Henry', numerals = 'VIII') {
+            return `King ${name} ${numerals}`;
+        }
+        console.log(makeKing()); // 'King Henry VIII'
+        console.log(makeKing('Louis')); // 'King Louis VIII'
+        console.log(makeKing(undefined, 'VI')); // 'King Henry VI'
+
+
+        // 修改命名参数也不会影响 arguments 对象，它始终以调用函数时传入的值为准
+        function makeKing1(name = 'Henry') {
+            name = 'Louis';
+            return `King ${arguments[0]}`;
+        }
+        console.log(makeKing1()); // 'King undefined'
+        console.log(makeKing1('Louis')); // 'King Louis'
+
+        // 默认参数值并不限于原始值或对象类型，也可以使用调用函数返回的值
+        let romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI'];
+        let ordinality = 0;
+        function getNumerals() {
+            // 每次调用后递增
+            return romanNumerals[ordinality++];
+        }
+        function makeKing2(name = 'Henry', numerals = getNumerals()) {
+            return `King ${name} ${numerals}`;
+        }
+        console.log(makeKing2()); // 'King Henry I'
+        console.log(makeKing2('Louis', 'XVI')); // 'King Louis XVI'
+        console.log(makeKing2()); // 'King Henry II'
+        console.log(makeKing2()); // 'King Henry III'
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

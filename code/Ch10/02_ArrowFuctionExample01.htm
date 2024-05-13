@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Type Example</title>
+    <script type="text/javascript">
+
+
+        let arrowSum = (a, b) => {
+            return a + b;
+        };
+        // 等价于
+        let functionExpressionSum = function(a, b) {
+            return a + b;
+        };
+        console.log(arrowSum(5, 8)); // 13
+        console.log(functionExpressionSum(5, 8)); // 13
+
+
+        // 箭头函数非常适合嵌入函数的场景
+        let ints = [1, 2, 3];
+
+        console.log(ints.map(function(i) { return i + 1; })); // [2, 3, 4]
+        console.log(ints.map((i) => { return i + 1 })); // [2, 3, 4]
+
+        // 参数
+        // 以下两种写法都有效
+        let double = (x) => { return 2 * x; };
+        let triple = x => { return 3 * x; };
+
+        // 没有参数需要括号
+        let getRandom = () => { return Math.random(); };
+
+        // 多个参数需要括号
+        let sum = (a, b) => { return a + b; };
+
+        // 无效的写法：
+        let multiply = a, b => { return a * b; };
+
+
+        // 返回值
+        // 以下两种写法都有效，而且返回相应的值
+        let double1 = (x) => { return 2 * x; };
+        let triple1 = (x) => 3 * x;
+
+        // 可以赋值
+        let value = {};
+        let setName = (x) => x.name = "Matt";
+
+        setName(value);
+        console.log(value.name); // "Matt"
+
+        // 无效的写法：
+        let multiply1 = (a, b) => return a * b;
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

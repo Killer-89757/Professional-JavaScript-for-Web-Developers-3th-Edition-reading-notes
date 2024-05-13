@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Type Example</title>
+    <script type="text/javascript">
+
+        // 如果函数是一个获取函数、设置函数，或者使用 bind()实例化，那么标识符前面会加上一个前缀
+        function foo() {}
+        console.log(foo.bind(null).name); // bound foo
+        let dog = {
+            years: 1,
+            get age() {
+                return this.years;
+            },
+            set age(newAge) {
+                this.years = newAge;
+            }
+        }
+        let propertyDescriptor = Object.getOwnPropertyDescriptor(dog, 'age');
+        console.log(propertyDescriptor.get.name); // get age
+        console.log(propertyDescriptor.set.name); // set age
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>
