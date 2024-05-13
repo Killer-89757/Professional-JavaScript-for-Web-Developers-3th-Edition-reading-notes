@@ -8,7 +8,7 @@
         
         Object.defineProperties(book, {
             _year: {
-                value: 2004
+                value: 2017
             },
             
             edition: {
@@ -21,16 +21,16 @@
                 },
                 
                 set: function(newValue){
-                    if (newValue > 2004) {
+                    if (newValue > 2017) {
                         this._year = newValue;
-                        this.edition += newValue - 2004;
+                        this.edition += newValue - 2017;
                     }                  
                 }            
             }        
         });
            
         var descriptor = Object.getOwnPropertyDescriptor(book, "_year");
-        alert(descriptor.value);          //2004
+        alert(descriptor.value);          //2017
         alert(descriptor.configurable);   //false
         alert(typeof descriptor.get);     //"undefined"
         

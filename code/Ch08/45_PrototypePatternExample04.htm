@@ -4,8 +4,7 @@
     <title>Prototype Pattern Example 2</title>
     <script type="text/javascript">
     
-        function Person(){
-        }
+        function Person(){}
         
         Person.prototype.name = "Nicholas";
         Person.prototype.age = 29;
@@ -18,8 +17,8 @@
         var person2 = new Person();
         
         person1.name = "Greg";
-        alert(person1.name);   //"Greg" – from instance
-        alert(person2.name);   //"Nicholas" – from prototype
+        alert(person1.name);   //"Greg"  from instance
+        alert(person2.name);   //"Nicholas"  from prototype
 
     </script>
 </head>

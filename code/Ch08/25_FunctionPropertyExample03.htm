@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 简写方法名与可计算属性键相互兼容：
+        const methodKey = 'sayName';
+        let person = {
+            [methodKey](name) {
+                console.log(`My name is ${name}`);
+            }
+        }
+        person.sayName('Matt'); // My name is Matt
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

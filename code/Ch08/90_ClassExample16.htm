@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        // 静态类方法非常适合作为实例工厂
+        class Person {
+            constructor(age) {
+                this.age_ = age;
+            }
+            sayAge() {
+                console.log(this.age_);
+            }
+            static create() {
+                // 使用随机年龄创建并返回一个 Person 实例
+                return new Person(Math.floor(Math.random()*100));
+            }
+        }
+        console.log(Person.create()); // Person { age_: ... }
+
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

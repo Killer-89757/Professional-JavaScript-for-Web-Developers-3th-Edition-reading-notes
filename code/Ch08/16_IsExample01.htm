@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 这些是===符合预期的情况
+        console.log(true === 1); // false
+        console.log({} === {}); // false
+        console.log("2" === 2); // false
+
+        // 这些情况在不同 JavaScript 引擎中表现不同，但仍被认为相等
+        console.log(+0 === -0); // true
+        console.log(+0 === 0); // true
+        console.log(-0 === 0); // true
+
+        // 要确定 NaN 的相等性，必须使用极为讨厌的 isNaN()
+        console.log(NaN === NaN); // false
+        console.log(isNaN(NaN)); // true
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

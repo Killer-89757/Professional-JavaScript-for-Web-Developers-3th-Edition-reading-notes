@@ -19,7 +19,7 @@
         //inherit from SuperType
         SubType.prototype = new SuperType();
         
-        //try to add new methods – this nullifies the previous line
+        //try to add new methods  this nullifies the previous line
         SubType.prototype = {
             getSubValue : function (){
                 return this.subproperty;

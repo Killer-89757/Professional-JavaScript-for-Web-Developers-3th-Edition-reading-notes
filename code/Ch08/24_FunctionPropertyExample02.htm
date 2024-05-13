@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 简写方法名对获取函数和设置函数也是适用的
+        let person = {
+            name_: '',
+            get name() {
+                return this.name_;
+            },
+            set name(name) {
+                this.name_ = name;
+            },
+            sayName() {
+                console.log(`My name is ${this.name_}`);
+            }
+        };
+        person.name = 'Matt';
+        person.sayName(); // My name is Matt
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

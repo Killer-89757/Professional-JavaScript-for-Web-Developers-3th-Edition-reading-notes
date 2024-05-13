@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        class Animal {}
+
+        class Person {
+            constructor() {
+                console.log('person ctor');
+            }
+        }
+
+        class Vegetable {
+            constructor() {
+                this.color = 'orange';
+            }
+        }
+
+        let a = new Animal();
+        let p = new Person(); // person ctor
+        let v = new Vegetable();
+        console.log(v.color); // orange
+
+
+        // 类实例化时传入的参数会用作构造函数的参数
+        class Person1 {
+            constructor(name) {
+                console.log(arguments.length);
+                this.name = name || null;
+            }
+        }
+        let p1 = new Person1; // 0
+        console.log(p1.name); // null
+        let p2 = new Person1(); // 0
+        console.log(p2.name); // null
+        let p3 = new Person1('Jake'); // 1
+        console.log(p3.name); // Jake
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

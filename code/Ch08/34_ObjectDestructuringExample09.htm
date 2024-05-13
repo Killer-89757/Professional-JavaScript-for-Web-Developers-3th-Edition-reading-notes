@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 在外层属性没有定义的情况下不能使用嵌套解构。无论源对象还是目标对象都一样
+        let person = {
+            job: {
+                title: 'Software engineer'
+            }
+        };
+        let personCopy = {};
+        // foo 在源对象上是 undefined
+        ({
+            foo: {
+                bar: personCopy.bar
+            }
+        } = person);
+        // TypeError: Cannot destructure property 'bar' of 'undefined' or 'null'.
+
+        // job 在目标对象上是 undefined
+        ({
+            job: {
+                title: personCopy.job.title
+            }
+        } = person);
+        // TypeError: Cannot set property 'title' of undefined
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

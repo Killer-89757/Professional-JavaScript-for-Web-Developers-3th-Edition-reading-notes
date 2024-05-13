@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 如果是给事先声明的变量赋值，则赋值表达式必须包含在一对括号中
+        let personName, personAge;
+        let person = {
+            name: 'Matt',
+            age: 27
+        };
+        ({name: personName, age: personAge} = person);
+        console.log(personName, personAge); // Matt, 27
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

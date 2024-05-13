@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        function Person() {}
+        class Animal {}
+        // 把 window 作为 this 来构建实例
+
+        let p = Person();
+        let a = Animal();
+        // TypeError: class constructor Animal cannot be invoked without 'new'
+
+
+        // 类构造函数没有什么特殊之处，实例化之后，它会成为普通的实例方法（但作为类构造函数，仍然要使用 new 调用）
+        class Person2 {}
+        // 使用类创建一个新实例
+        let p1 = new Person2();
+
+        p1.constructor();
+        // TypeError: Class constructor Person cannot be invoked without 'new'
+        // 使用对类构造函数的引用创建一个新实例
+        let p2 = new p1.constructor();
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

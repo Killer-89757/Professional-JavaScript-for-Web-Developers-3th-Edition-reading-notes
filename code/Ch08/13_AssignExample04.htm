@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        let dest, src, result;
+        /**
+         * 覆盖属性
+         */
+        dest = { id: 'dest' };
+        result = Object.assign(dest, { id: 'src1', a: 'foo' }, { id: 'src2', b: 'bar' });
+        // Object.assign 会覆盖重复的属性
+        console.log(result); // { id: src2, a: foo, b: bar }
+
+
+        // 可以通过目标对象上的设置函数观察到覆盖的过程：
+        dest = {
+            set id(x) {
+                console.log(x);
+            }
+        };
+        Object.assign(dest, { id: 'first' }, { id: 'second' }, { id: 'third' });
+        // first
+        // second
+        // third
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

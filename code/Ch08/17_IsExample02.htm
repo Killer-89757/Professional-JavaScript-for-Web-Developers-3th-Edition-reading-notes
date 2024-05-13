@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        console.log(Object.is(true, 1)); // false
+        console.log(Object.is({}, {})); // false
+        console.log(Object.is("2", 2)); // false
+
+        // 正确的 0、-0、+0 相等/不等判定
+        console.log(Object.is(+0, -0)); // false
+        console.log(Object.is(+0, 0)); // true
+        console.log(Object.is(-0, 0)); // false
+
+        // 正确的 NaN 相等判定
+        console.log(Object.is(NaN, NaN)); // true
+
+        // 要检查超过两个值，递归地利用相等性传递即可：
+        function recursivelyCheckEqual(x, ...rest) {
+            return Object.is(x, rest[0]) &&
+                (rest.length < 2 || recursivelyCheckEqual(...rest));
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

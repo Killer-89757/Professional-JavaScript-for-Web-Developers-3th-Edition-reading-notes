@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        class Person {
+            set name(newName) {
+                this.name_ = newName;
+            }
+            get name() {
+                return this.name_;
+            }
+        }
+        let p = new Person();
+        p.name = 'Jake';
+        console.log(p.name); // Jake
+
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

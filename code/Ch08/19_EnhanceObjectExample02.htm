@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 代码压缩程序会在不同作用域间保留属性名，以防止找不到引用。
+        function makePerson(name) {
+            return {
+                name
+            };
+        }
+        let person = makePerson('Matt');
+        console.log(person.name); // Matt
+
+        // 即使参数标识符只限定于函数作用域，编译器也会保留初始的 name 标识符
+        function makePerson1(a) {
+            return {
+                name: a
+            };
+        }
+        var person1 = makePerson1("Matt");
+        console.log(person1.name); // Matt
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

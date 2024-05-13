@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        // 类可以像函数一样在任何地方定义，比如在数组中
+        let classList = [
+            class {
+                constructor(id) {
+                    this.id_ = id;
+                    console.log(`instance ${this.id_}`);
+                }
+            }
+        ];
+        function createInstance(classDefinition, id) {
+            return new classDefinition(id);
+        }
+        let foo = createInstance(classList[0], 3141); // instance 3141
+
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

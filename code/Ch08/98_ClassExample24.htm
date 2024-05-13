@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        // super 只能在派生类构造函数和静态方法中使用
+        class Vehicle {
+            constructor() {
+                super();
+                // SyntaxError: 'super' keyword unexpected
+            }
+        }
+
+        // 不能单独引用 super 关键字，要么用它调用构造函数，要么用它引用静态方法
+        class Vehicle1 {}
+        class Bus1 extends Vehicle {
+            constructor() {
+                console.log(super);
+                // SyntaxError: 'super' keyword unexpected here
+            }
+        }
+
+        // 调用 super()会调用父类构造函数，并将返回的实例赋值给 this
+        class Vehicle2 {}
+        class Bus2 extends Vehicle2 {
+            constructor() {
+                super();
+                console.log(this instanceof Vehicle2);
+            }
+        }
+        new Bus2(); // true
+
+
+        // super()的行为如同调用构造函数，如果需要给父类构造函数传参，则需要手动传入。
+        class Vehicle3 {
+            constructor(licensePlate) {
+                this.licensePlate = licensePlate;
+            }
+        }
+        class Bus3 extends Vehicle3 {
+            constructor(licensePlate) {
+                super(licensePlate);
+            }
+        }
+        console.log(new Bus3('1337H4X')); // Bus3 { licensePlate: '1337H4X' }
+
+        // 如果没有定义类构造函数，在实例化派生类时会调用 super()，而且会传入所有传给派生类的参数
+        class Vehicle4 {
+            constructor(licensePlate) {
+                this.licensePlate = licensePlate;
+            }
+        }
+        class Bus4 extends Vehicle4 {}
+        console.log(new Bus('1337H4X')); // Bus4 { licensePlate: '1337H4X' }
+
+        // 在类构造函数中，不能在调用 super()之前引用 this
+        class Vehicle5 {}
+        class Bus5 extends Vehicle5 {
+            constructor() {
+                console.log(this);
+            }
+        }
+        new Bus5();
+        // ReferenceError: Must call super constructor in derived class
+        // before accessing 'this' or returning from derived constructor
+
+        // 如果在派生类中显式定义了构造函数，则要么必须在其中调用 super()，要么必须在其中返回一个对象
+        class Vehicle6 {}
+        class Car6 extends Vehicle6 {}
+        class Bus6 extends Vehicle6 {
+            constructor() {
+                super();
+            }
+        }
+        class Van6 extends Vehicle6 {
+            constructor() {
+                return {};
+            }
+        }
+        console.log(new Car6()); // Car {}
+        console.log(new Bus6()); // Bus {}
+        console.log(new Van6()); // {}
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        // 类方法等同于对象属性，因此可以使用字符串、符号或计算的值作为键
+        const symbolKey = Symbol('symbolKey');
+        class Person {
+            stringKey() {
+                console.log('invoked stringKey');
+            }
+            [symbolKey]() {
+                console.log('invoked symbolKey');
+            }
+            ['computed' + 'Key']() {
+                console.log('invoked computedKey');
+            }
+        }
+        let p = new Person();
+        p.stringKey(); // invoked stringKey
+        p[symbolKey](); // invoked symbolKey
+        p.computedKey(); // invoked computedKey
+
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

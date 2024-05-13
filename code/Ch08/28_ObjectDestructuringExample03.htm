@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 解构赋值不一定与对象的属性匹配。赋值的时候可以忽略某些属性，而如果引用的属性不存在，则该变量的值就是 undefined
+        let person = {
+            name: 'Matt',
+            age: 27
+        };
+        let { name, job } = person;
+        console.log(name); // Matt
+        console.log(job); // undefined
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

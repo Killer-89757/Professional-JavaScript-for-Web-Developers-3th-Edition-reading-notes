@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        class Vehicle {
+            static identify() {
+                console.log('vehicle');
+            }
+        }
+        class Bus extends Vehicle {
+            static identify() {
+                super.identify();
+            }
+        }
+        Bus.identify(); // vehicle
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

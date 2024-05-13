@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 使用嵌套结构，以匹配嵌套的属性
+        let person = {
+            name: 'Matt',
+            age: 27,
+            job: {
+                title: 'Software engineer'
+            }
+        };
+        // 声明 title 变量并将 person.job.title 的值赋给它
+        let { job: { title } } = person;
+        console.log(title); // Software engineer
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

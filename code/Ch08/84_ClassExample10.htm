@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        // 因为是一个类表达式，所以类名是可选的
+        let p = new class Foo {
+            constructor(x) {
+                console.log(x);
+            }
+        }('bar'); // bar
+
+        console.log(p); // Foo {}
+
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

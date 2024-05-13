@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        let person = {
+            sayName: function(name) {
+                console.log(`My name is ${name}`);
+            }
+        };
+        person.sayName('Matt'); // My name is Matt
+
+        // 等价于
+        let person1 = {
+            sayName(name) {
+                console.log(`My name is ${name}`);
+            }
+        };
+        person1.sayName('Matt1'); // My name is Matt
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

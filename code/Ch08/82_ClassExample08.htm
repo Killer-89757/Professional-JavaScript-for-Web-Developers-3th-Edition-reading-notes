@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        class Person {}
+
+        let p1 = new Person();
+        console.log(p1.constructor === Person); // true
+        console.log(p1 instanceof Person); // true
+        // 类中定义的 constructor 方法不会被当成构造函数，在对它使用 instanceof 操作符时会返回 false
+        console.log(p1 instanceof Person.constructor); // false
+
+        let p2 = new Person.constructor();
+        console.log(p2.constructor === Person); // false
+        console.log(p2 instanceof Person); // false
+        // 如果在创建实例时直接将类构造函数当成普通构造函数来使用，那么 instanceof 操作符的返回值会反转
+        console.log(p2 instanceof Person.constructor); // true
+
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

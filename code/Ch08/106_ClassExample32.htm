@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        // 通过写一个辅助函数，可以把嵌套调用展开
+        class Vehicle {}
+        let FooMixin = (Superclass) => class extends Superclass {
+            foo() {
+                console.log('foo');
+            }
+        };
+        let BarMixin = (Superclass) => class extends Superclass {
+            bar() {
+                console.log('bar');
+            }
+        };
+        let BazMixin = (Superclass) => class extends Superclass {
+            baz() {
+                console.log('baz');
+            }
+        };
+        function mix(BaseClass, ...Mixins) {
+            return Mixins.reduce((accumulator, current) => current(accumulator), BaseClass);
+        }
+        class Bus extends mix(Vehicle, FooMixin, BarMixin, BazMixin) {}
+        let b = new Bus();
+        b.foo(); // foo
+        b.bar(); // bar
+        b.baz(); // baz
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

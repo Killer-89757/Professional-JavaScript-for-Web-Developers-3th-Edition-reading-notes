@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 在解构赋值的同时定义默认值，这适用于前面刚提到的引用的属性不存在于源对象中的情况
+        let person = {
+            name: 'Matt',
+            age: 27
+        };
+        let { name, job='Software engineer' } = person;
+        console.log(name); // Matt
+        console.log(job); // Software engineer
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

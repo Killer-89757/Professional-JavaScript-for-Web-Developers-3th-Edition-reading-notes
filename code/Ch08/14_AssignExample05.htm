@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        /**
+         * 对象引用
+         */
+        dest = {};
+        src = { a: {} };
+        Object.assign(dest, src);
+        // 浅复制意味着只会复制对象的引用
+        console.log(dest); // { a :{} }
+        console.log(dest.a === src.a); // true
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

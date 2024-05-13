@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 不使用对象解构
+        let person = {
+            name: 'Matt',
+            age: 27
+        };
+        let personName = person.name, personAge = person.age;
+        console.log(personName); // Matt
+        console.log(personAge); // 27
+
+        // 使用对象解构
+        let person1 = {
+            name: 'Matt',
+            age: 27
+        };
+        let { name: personName1, age: personAge1 } = person1;
+        console.log(personName1); // Matt
+        console.log(personAge1); // 27
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

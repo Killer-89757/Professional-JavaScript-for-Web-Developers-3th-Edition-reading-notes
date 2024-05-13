@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 可以通过解构来复制对象属性
+        let person = {
+            name: 'Matt',
+            age: 27,
+            job: {
+                title: 'Software engineer'
+            }
+        };
+        let personCopy = {};
+        ({
+            name: personCopy.name,
+            age: personCopy.age,
+            job: personCopy.job
+        } = person);
+        // 因为一个对象的引用被赋值给 personCopy，所以修改
+        // person.job 对象的属性也会影响 personCopy
+        person.job.title = 'Hacker'
+        console.log(person);
+        // { name: 'Matt', age: 27, job: { title: 'Hacker' } }
+        console.log(personCopy);
+        // { name: 'Matt', age: 27, job: { title: 'Hacker' } }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        let dest, src, result;
+        /**
+         * 错误处理
+         */
+        dest = {};
+        src = {
+            a: 'foo',
+            get b() {
+                // Object.assign()在调用这个获取函数时会抛出错误
+                throw new Error();
+            },
+            c: 'bar'
+        };
+        try {
+            Object.assign(dest, src);
+        } catch(e) {}
+
+        // Object.assign()没办法回滚已经完成的修改
+        // 因此在抛出错误之前，目标对象上已经完成的修改会继续存在：
+        console.log(dest); // { a: foo }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

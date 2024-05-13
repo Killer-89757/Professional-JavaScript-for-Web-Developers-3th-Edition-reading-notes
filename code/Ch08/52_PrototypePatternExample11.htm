@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prototype Pattern Example</title>
+    <script type="text/javascript">
+
+        const o = {
+            foo: 'bar',
+            baz: 1,
+            qux: {}
+        };
+        console.log(Object.values(o));  // ["bar", 1, {}]
+        console.log(Object.entries((o)));  // [["foo", "bar"], ["baz", 1], ["qux", {}]]
+
+        // 非字符串属性会被转换为字符串输出
+        // 这两个方法执行对象的浅复制
+        const o1 = {
+            qux: {}
+        };
+        console.log(Object.values(o1)[0] === o1.qux);
+        // true
+        console.log(Object.entries(o1)[0][1] === o1.qux);
+        // true
+
+        // 符号属性会被忽略
+        const sym = Symbol();
+        const o2 = {
+            [sym]: 'foo'
+        };
+        console.log(Object.values(o2));
+        // []
+        console.log(Object.entries((o2)));
+        // []
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

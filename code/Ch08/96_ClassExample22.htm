@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        class Vehicle {
+            constructor() {
+                this.hasEngine = true;
+            }
+        }
+        class Bus extends Vehicle {
+            constructor() {
+                // 不要在调用 super()之前引用 this，否则会抛出 ReferenceError
+                super(); // 相当于 super.constructor()
+                console.log(this instanceof Vehicle); // true
+                console.log(this); // Bus { hasEngine: true }
+            }
+        }
+        new Bus();
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

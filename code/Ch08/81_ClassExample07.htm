@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        // 通过 typeof 操作符检测类标识符，表明它是一个函数
+        class Person {}
+        console.log(Person); // class Person {}
+        console.log(typeof Person); // function
+
+        // 类标识符有 prototype 属性，而这个原型也有一个 constructor 属性指向类自身
+        console.log(Person.prototype); // { constructor: f() }
+        console.log(Person === Person.prototype.constructor); // true
+
+        // 使用 instanceof 操作符检查构造函数原型是否存在于实例的原型链中
+        let p = new Person();
+        console.log(p instanceof Person); // true
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

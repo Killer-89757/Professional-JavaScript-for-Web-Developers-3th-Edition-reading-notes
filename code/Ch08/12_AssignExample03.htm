@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        /**
+         * 获取函数与设置函数
+         * 对每个符合条件的属性，这个方法会使用 源对象 上的[[Get]]取得属性的值，然后使用 目标对象 上的[[Set]]设置属性的值。
+         * Object.assign()实际上对每个源对象执行的是浅复制。
+         */
+        dest = {
+            set a(val) {
+                console.log(`Invoked dest setter with param ${val}`);
+            }
+        };
+        src = {
+            get a() {
+                console.log('Invoked src getter');
+                return 'foo';
+            }
+        };
+        Object.assign(dest, src);
+        // 调用 src 的获取方法
+        // 调用 dest 的设置方法并传入参数"foo"
+        // 因为这里的设置函数不执行赋值操作
+        // 所以实际上并没有把值转移过来
+        console.log(dest); // { set a(val) {...} }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

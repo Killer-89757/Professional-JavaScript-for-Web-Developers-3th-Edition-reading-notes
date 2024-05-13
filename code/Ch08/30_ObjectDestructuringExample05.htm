@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        // 这也意味着（根据 ToObject()的定义），null 和 undefined 不能被解构，否则会抛出错误。
+        let {length} = 'foobar';
+        console.log(length); // 6
+
+        let {constructor: c} = 4;
+        console.log(c === Number); // true
+
+        let {_} = null; // TypeError
+        let {_} = undefined; // TypeError
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

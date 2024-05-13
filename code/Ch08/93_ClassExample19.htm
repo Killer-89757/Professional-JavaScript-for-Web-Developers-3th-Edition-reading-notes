@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+
+        class Person {
+            constructor() {
+                this.nicknames = ['Jack', 'Jake', 'J-Dog'];
+            }
+            *[Symbol.iterator]() {
+                yield *this.nicknames.entries();
+            }
+        }
+        let p = new Person();
+        for (let [idx, nickname] of p) {
+            console.log(nickname);
+        }
+        // Jack
+        // Jake
+        // J-Dog
+
+        // 也可以只返回迭代器实例
+        class Person1 {
+            constructor() {
+                this.nicknames = ['Jack', 'Jake', 'J-Dog'];
+            }
+            [Symbol.iterator]() {
+                return this.nicknames.entries();
+            }
+        }
+        let p1 = new Person1();
+        for (let [idx, nickname] of p1) {
+            console.log(nickname);
+        }
+        // Jack
+        // Jake
+        // J-Dog
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

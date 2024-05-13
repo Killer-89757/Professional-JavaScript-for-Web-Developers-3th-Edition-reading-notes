@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Property Descriptor Example</title>
+    <script type="text/javascript">
+
+        let book = {};
+        Object.defineProperties(book, {
+            year_: {
+                value: 2017
+            },
+            edition: {
+                value: 1
+            },
+            year: {
+                get: function () {
+                    return this.year_;
+                },
+                set: function (newValue) {
+                    if (newValue > 2017) {
+                        this.year_ = newValue;
+                        this.edition += newValue - 2017;
+                    }
+                }
+            }
+        });
+        console.log(Object.getOwnPropertyDescriptors(book));
+        // {
+        //   edition: {
+        //     configurable: false,
+        //     enumerable: false,
+        //     value: 1,
+        //     writable: false
+        //   },
+        //   year: {
+        //     configurable: false,
+        //     enumerable: false,
+        //     get: f(),
+        //     set: f(newValue),
+        //   },
+        //   year_: {
+        //     configurable: false,
+        //     enumerable: false,
+        //     value: 2017,
+        //     writable: false
+        //   }
+        // }
+
+
+    </script>
+</head>
+<body>
+<p>Note: this example only works in browsers that have implemented the ECMAScript 5 <code>Object.defineProperty()</code>
+    method (IE9 and Firefox 4).</p>
+</body>
+</html>
