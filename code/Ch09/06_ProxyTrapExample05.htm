@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>typeof Example</title>
+    <script type="text/javascript">
+
+        // 创建一个可以捕获所有方法，然后将每个方法转发给对应反射 API 的空代理，不需要定义处理程序对象
+        const target = {
+            foo: 'bar'
+        };
+        const proxy = new Proxy(target, Reflect);
+        console.log(proxy.foo); // bar
+        console.log(target.foo); // bar
+
+        // 反射 API 为开发者准备好了样板代码，在此基础上开发者可以用最少的代码修改捕获的方法
+        const target1 = {
+            foo: 'bar',
+            baz: 'qux'
+        };
+        const handler1 = {
+            get(trapTarget, property, receiver) {
+                let decoration = '';
+                if (property === 'foo') {
+                    decoration = '!!!';
+                }
+                return Reflect.get(...arguments) + decoration;
+            }
+        };
+        const proxy1 = new Proxy(target1, handler1);
+        console.log(proxy1.foo); // bar!!!
+        console.log(target1.foo); // bar
+        console.log(proxy1.baz); // qux
+        console.log(target1.baz); // qux
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

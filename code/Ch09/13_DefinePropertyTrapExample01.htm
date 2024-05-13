@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>typeof Example</title>
+    <script type="text/javascript">
+
+        const myTarget = {};
+        const proxy = new Proxy(myTarget, {
+            defineProperty(target, property, descriptor) {
+                console.log('defineProperty()');
+                return Reflect.defineProperty(...arguments)
+            }
+        });
+        Object.defineProperty(proxy, 'foo', { value: 'bar' });
+        // defineProperty()
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

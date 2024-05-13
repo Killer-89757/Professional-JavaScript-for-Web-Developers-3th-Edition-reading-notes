@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>typeof Example</title>
+    <script type="text/javascript">
+
+        // get()捕获器会接收到目标对象、要查询的属性和代理对象三个参数
+        const target = {
+            foo: 'bar'
+        };
+        const handler = {
+            get(trapTarget, property, receiver) {
+                console.log(trapTarget === target);
+                console.log(property);
+                console.log(receiver === proxy);
+            }
+        };
+        const proxy = new Proxy(target, handler);
+        proxy.foo;
+        // true
+        // foo
+        // true
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>typeof Example</title>
+    <script type="text/javascript">
+
+        // get()捕获器会在获取属性值的操作中被调用。对应的反射 API 方法为 Reflect.get()。
+        const myTarget = {};
+        const proxy = new Proxy(myTarget, {
+            get(target, property, receiver) {
+                console.log('get()');
+                return Reflect.get(...arguments)
+            }
+        });
+        proxy.foo;
+        // get()
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

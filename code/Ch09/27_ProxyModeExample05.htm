@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>typeof Example</title>
+    <script type="text/javascript">
+
+        const userList = [];
+        class User {
+            constructor(name) {
+                this.name_ = name;
+            }
+        }
+        const proxy = new Proxy(User, {
+            construct() {
+                const newUser = Reflect.construct(...arguments);
+                userList.push(newUser);
+                return newUser;
+            }
+        });
+        new proxy('John');
+        new proxy('Jacob');
+        new proxy('Jingleheimerschmidt');
+        console.log(userList); // [User {}, User {}, User{}]
+
+        // 把集合绑定到一个事件分派程序，每次插入新实例时都会发送消息
+        const userList1 = [];
+        function emit(newValue) {
+            console.log(newValue);
+        }
+        const proxy1 = new Proxy(userList, {
+            set(target, property, value, receiver) {
+                const result = Reflect.set(...arguments);
+                if (result) {
+                    emit(Reflect.get(target, property, receiver));
+                }
+                return result;
+            }
+        });
+        proxy1.push('John');
+        // John
+        proxy1.push('Jacob');
+        // Jacob
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

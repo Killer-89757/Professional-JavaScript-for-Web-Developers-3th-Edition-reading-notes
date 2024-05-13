@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>typeof Example</title>
+    <script type="text/javascript">
+
+        const target = {
+            foo: 'bar'
+        };
+        const handler = {
+            get() {
+                return Reflect.get(...arguments);
+            }
+        };
+        const proxy = new Proxy(target, handler);
+        console.log(proxy.foo); // bar
+        console.log(target.foo); // bar
+
+        // 等价于
+        const target1 = {
+            foo: 'bar'
+        };
+
+        const handler1 = {
+            get: Reflect.get
+        };
+        const proxy1 = new Proxy(target1, handler1);
+        console.log(proxy1.foo); // bar
+        console.log(target1.foo); // bar
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

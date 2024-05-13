@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>typeof Example</title>
+    <script type="text/javascript">
+
+        const target = {};
+        Object.defineProperty(target, 'foo', {
+            configurable: false,
+            writable: false,
+            value: 'bar'
+        });
+        const handler = {
+            get() {
+                return 'qux';
+            }
+        };
+        const proxy = new Proxy(target, handler);
+        console.log(proxy.foo);          // TypeError
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

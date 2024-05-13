@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>typeof Example</title>
+    <script type="text/javascript">
+
+        const myTarget = {};
+        const proxy = new Proxy(myTarget, {
+            has(target, property) {
+                console.log('has()');
+                return Reflect.has(...arguments)
+            }
+        });
+        'foo' in proxy;
+        // has()
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>typeof Example</title>
+    <script type="text/javascript">
+
+        const target = {
+            foo: 'bar'
+        };
+
+        const handler = {
+            get() {
+                return 'intercepted';
+            }
+        };
+
+        const { proxy, revoke } = Proxy.revocable(target, handler);
+        console.log(proxy.foo); // intercepted
+        console.log(target.foo); // bar
+        revoke();
+        console.log(proxy.foo); // TypeError
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

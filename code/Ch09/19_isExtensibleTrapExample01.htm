@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>typeof Example</title>
+    <script type="text/javascript">
+
+        const myTarget = {};
+        const proxy = new Proxy(myTarget, {
+            isExtensible(target) {
+                console.log('isExtensible()');
+                return Reflect.isExtensible(...arguments)
+            }
+        });
+        Object.isExtensible(proxy);
+        // isExtensible()
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
